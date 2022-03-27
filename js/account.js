@@ -43,7 +43,7 @@ function initRoleCbList() {
         '<option' + ' value=""></option>'
     )
     $.ajax({
-        url: 'http://localhost:8080/api/v1/accounts/roles',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/accounts/roles',
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -78,7 +78,7 @@ function initDepartmentCbList() {
     )
 
     $.ajax({
-        url: 'http://localhost:8080/api/v1/departments/lists',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/departments/lists',
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -103,7 +103,7 @@ function initDepartmentCbList() {
 //khởi tạo danh sách cho bảng account
 function getListAccount() {
     $('.account-table tbody').empty();
-    var url = "http://localhost:8080/api/v1/accounts";
+    var url = "https://quanly-nhansu.herokuapp.com/api/v1/accounts";
 
     url += "?pageNumber=" + currentPageAccount + "&size=" + $('#pageAccountSize').val();
 
@@ -319,7 +319,7 @@ function opendUpdateModalAccount(accountId) {
     $('#account-edit-modal').text("Update Account");
     // gọi api lấy phòng ban theo id
     $.ajax({
-        url: 'http://localhost:8080/api/v1/accounts/' + accountId,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/accounts/' + accountId,
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -470,7 +470,7 @@ function isUsernameDuplication(username) {
     var check = false;
     $.ajax({
         async: false,
-        url: "http://localhost:8080/api/v1/accounts/username/" + username,
+        url: "https://quanly-nhansu.herokuapp.com/api/v1/accounts/username/" + username,
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -489,7 +489,7 @@ function isEmailDuplicationForCreate(email) {
     var check = false;
     $.ajax({
         async: false,
-        url: "http://localhost:8080/api/v1/accounts/email/" + email,
+        url: "https://quanly-nhansu.herokuapp.com/api/v1/accounts/email/" + email,
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -531,7 +531,7 @@ function createNewAccount() {
 
     // gọi api thêm mới account
     $.ajax({
-        url: 'http://localhost:8080/api/v1/accounts',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/accounts',
         type: 'POST',
         data: JSON.stringify(account),
         contentType: "application/json;charset=utf-8",
@@ -565,7 +565,7 @@ function updateAccount(accountId) {
 
     // gọi api cập nhật account
     $.ajax({
-        url: 'http://localhost:8080/api/v1/accounts',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/accounts',
         type: 'PUT',
         data: JSON.stringify(account),
         contentType: "application/json;charset=utf-8",
@@ -633,7 +633,7 @@ function deleteAccount() {
 
 function executeDeleteAccount() {
     $.ajax({
-        url: 'http://localhost:8080/api/v1/accounts/' + deleteAccountId,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/accounts/' + deleteAccountId,
         type: 'DELETE',
         async: false,
         beforeSend: function (xhr) {
@@ -655,7 +655,7 @@ function executeDeleteAccounts() {
     }
 
     $.ajax({
-        url: 'http://localhost:8080/api/v1/accounts',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/accounts',
         type: 'DELETE',
         data: JSON.stringify(accountIds),
         contentType: "application/json;charset=utf-8",

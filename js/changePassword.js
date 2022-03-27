@@ -78,7 +78,7 @@ function changePassword() {
 
     // gọi api thay pass
     $.ajax({
-        url: 'http://localhost:8080/api/v1/auth',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/auth',
         type: 'PUT',
         data: JSON.stringify(account),
         contentType: "application/json;charset=utf-8",
@@ -102,7 +102,7 @@ function getMessageChangePass(key) {
     var returnVal = "";
     // call api
     $.ajax({
-        url: 'http://localhost:8080/api/v1/auth/messages?key=' + key,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/auth/messages?key=' + key,
         type: 'GET',
         async: false,
         success: function (result) {

@@ -41,7 +41,7 @@ function checkEmail() {
 }
 
 function sendEmail(email){
-    var url = 'http://localhost:8080/api/v1/auth/emailsend?email=' + email;
+    var url = 'https://quanly-nhansu.herokuapp.com/api/v1/auth/emailsend?email=' + email;
     // call api
     $.ajax({
         url: url,
@@ -62,7 +62,7 @@ function isEmailNotExits(email) {
     var check = false;
     $.ajax({
         async: false,
-        url: "http://localhost:8080/api/v1/auth/account/email?email=" + email,
+        url: "https://quanly-nhansu.herokuapp.com/api/v1/auth/account/email?email=" + email,
         type: 'GET',
         async: false,
         success: function (result) {
@@ -80,7 +80,7 @@ function getMessageForgotPass(key) {
     var returnVal = "";
     // call api
     $.ajax({
-        url: 'http://localhost:8080/api/v1/auth/messages?key=' + key,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/auth/messages?key=' + key,
         type: 'GET',
         async: false,
         success: function (result) {

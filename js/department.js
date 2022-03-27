@@ -16,7 +16,7 @@ function reset() {
 //khởi tạo danh sách cho bảng phòng ban
 function getListDepartment() {
     $('.department-table tbody').empty();
-    var url = "http://localhost:8080/api/v1/departments";
+    var url = "https://quanly-nhansu.herokuapp.com/api/v1/departments";
 
     url += "?pageNumber=" + currentPageDepartment + "&size=" + $('#pageSize').val();
 
@@ -130,7 +130,7 @@ function initTypeCbList() {
         '<option' + ' value=""></option>'
     )
     $.ajax({
-        url: 'http://localhost:8080/api/v1/departments/types',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/departments/types',
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -374,7 +374,7 @@ function showDeleteDepartmentModal(departmentId) {
 
 function getListAccountModal() {
     $('.modal-list-account tbody').empty();
-    var url = "http://localhost:8080/api/v1/accounts/list";
+    var url = "https://quanly-nhansu.herokuapp.com/api/v1/accounts/list";
 
     url += "?pageNumber=" + currentPageModalAccount;
 
@@ -513,7 +513,7 @@ function isDepartmentNameDuplication(departmentName){
     var check = false;
     $.ajax({
         async: false,
-        url: "http://localhost:8080/api/v1/departments/departmentName/" + departmentName,
+        url: "https://quanly-nhansu.herokuapp.com/api/v1/departments/departmentName/" + departmentName,
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -547,7 +547,7 @@ function createNewDepartment() {
     
     // gọi api thêm mới phòng ban
     $.ajax({
-        url: 'http://localhost:8080/api/v1/departments',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/departments',
         type: 'POST',
         data: JSON.stringify(department),
         contentType: "application/json;charset=utf-8",
@@ -578,7 +578,7 @@ function updateDepartment(departmentId) {
     }
     // gọi api để cập nhật phòng ban
     $.ajax({
-        url: 'http://localhost:8080/api/v1/departments/' + departmentId,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/departments/' + departmentId,
         type: 'PUT',
         data: JSON.stringify(department),
         async: false,
@@ -605,7 +605,7 @@ function opendUpdateModalDepartment(departmentId) {
     $('#department-edit-modal').text("Update Department");
     // gọi api lấy phòng ban theo id
     $.ajax({
-        url: 'http://localhost:8080/api/v1/departments/' + departmentId,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/departments/' + departmentId,
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -639,7 +639,7 @@ function resetModalDepartment() {
 
 function executeDeleteDepartment() {
     $.ajax({
-        url: 'http://localhost:8080/api/v1/departments/' + deleteDepartmentId,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/departments/' + deleteDepartmentId,
         type: 'DELETE',
         async: false,
         beforeSend: function (xhr) {
@@ -663,7 +663,7 @@ function executeDeleteDepartments() {
         ids: selectedDepartmentList
     }
     $.ajax({
-        url: 'http://localhost:8080/api/v1/departments',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/departments',
         type: 'DELETE',
         data: JSON.stringify(departmentIds),
         contentType: "application/json;charset=utf-8",

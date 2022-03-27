@@ -72,7 +72,7 @@ function showLoginInfomation() {
 function loginUser(username, password) {
     // call api
     $.ajax({
-        url: 'http://localhost:8080/api/v1/auth/login',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/auth/login',
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -122,7 +122,7 @@ function getMessage(key) {
     var returnVal = "";
     // call api
     $.ajax({
-        url: 'http://localhost:8080/api/v1/auth/messages?key=' + key,
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/auth/messages?key=' + key,
         type: 'GET',
         async: false,
         success: function (result) {
@@ -257,7 +257,7 @@ function registNewAccount() {
 
     // gọi api thêm mới account
     $.ajax({
-        url: 'http://localhost:8080/api/v1/auth',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/auth',
         type: 'POST',
         data: JSON.stringify(account),
         contentType: "application/json;charset=utf-8",
@@ -282,7 +282,7 @@ function registNewAccount() {
 function gotoHomePage(username, password) {
     // call api
     $.ajax({
-        url: 'http://localhost:8080/api/v1/auth/login',
+        url: 'https://quanly-nhansu.herokuapp.com/api/v1/auth/login',
         type: 'GET',
         async: false,
         beforeSend: function (xhr) {
@@ -317,7 +317,7 @@ function isUsernameDuplication(username) {
     var check = false;
     $.ajax({
         async: false,
-        url: "http://localhost:8080/api/v1/auth/username/" + username,
+        url: "https://quanly-nhansu.herokuapp.com/api/v1/auth/username/" + username,
         type: 'GET',
         async: false,
         success: function (result) {
@@ -333,7 +333,7 @@ function isEmailDuplication(email) {
     var check = false;
     $.ajax({
         async: false,
-        url: "http://localhost:8080/api/v1/auth/email/" + email,
+        url: "https://quanly-nhansu.herokuapp.com/api/v1/auth/email/" + email,
         type: 'GET',
         async: false,
         success: function (result) {

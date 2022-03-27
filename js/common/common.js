@@ -24,7 +24,7 @@ $(document).ready(function () {
 });
 
 function changeLanguage() {
-  urlGetMess = 'http://localhost:8080/api/v1/auth/messages';
+  urlGetMess = 'https://quanly-nhansu.herokuapp.com/api/v1/auth/messages';
   var langugeCode = $('#language').val();
   if(langugeCode == '1'){
     urlGetMess = urlGetMess + "/en";
