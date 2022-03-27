@@ -1,0 +1,205 @@
+<div class="container-lg">
+
+    <div class="alert alert-success alert-dismissible" id="alert-success-account">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong id="success-message-account">Thành công!</strong>.
+    </div>
+    
+    <div class="alert alert-danger alert-dismissible" id="alert-error-account">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong id="error-message-account">Thất bại!</strong>.
+    </div>
+
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Account List</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-filter-area">
+                <div class="row">
+                    <div class="col-lg-2 col-sm-4 input-search-group">
+                        <select id="select-account-role" class="form-control effect effect-3 filter" name="types"
+                            onblur="changeInputForAccount()">
+                        </select>
+                        <label>Role</label>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-4 input-search-group">
+                        <select id="select-account-department" class="form-control effect effect-3 filter" name="types"
+                            onblur="changeInputForAccount()">
+                        </select>
+                        <label>Department</label>
+                    </div>
+
+                    <div class="col-lg-1 col-sm-2 input-search-group">
+                        <label id="filter-btn" onclick="filterAccount()"><i class="fa-solid fa-filter"
+                                style="font-size: 40px;"></i></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-sm-4 input-search">
+                        <input id="search-account-name" class="form-control effect" type="text"
+                            onblur="changeInputForAccount()" onkeyup="searchByAccountName(event)">
+                        <label><i class="fa-solid fa-magnifying-glass"></i> Search by name</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-6">
+                    <p style="display: inline-flex; color: black;">
+                        Show&nbsp;
+                        <select class="form-control form-control-sm" id="pageAccountSize" onchange="changePageAccountNumber()">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                        </select>
+                        &nbsp;entries
+                    </p>
+                </div>
+                <div class="col-6" style="text-align: right;">
+                    <button type="button" class="btn btn-info add-new" onclick="openAddNewModalAccount()"><i
+                            class="fa fa-plus"></i> Add New</button>
+                    <button type="button" class="btn btn-info delete" onclick="showDeleteAccountModal(null)"><i
+                            class="fa fa-minus"></i> Delete</button>
+                </div>
+            </div>
+            <div class="table-area">
+                <table class="table table-bordered account-table">
+                    <thead>
+                        <tr class="header">
+                            <th style="width: 10%;"><input type="checkbox" id="checkbox-account-all" name="checkbox-account-all"
+                                    onclick="onChangeCheckboxAccountAll()"></th>
+                            <th>Username <i id="username-sort" class="fa-solid fa-sort"
+                                    onclick="changeAccountListSort('username')"></i></th>
+                            <th style="width: 15%;">Full Name <i id="fullName-sort" class="fa-solid fa-sort"
+                                    onclick="changeAccountListSort('fullName')"></i></th>
+                            <th style="width: 15%;">Role <i id="role-sort" class="fa-solid fa-sort"
+                                    onclick="changeAccountListSort('role')"></i></th>
+                            <th style="width: 15%;">Department <i id="department-sort" class="fa-solid fa-sort"
+                                    onclick="changeAccountListSort('department.name')"></i></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end pagination-sm" id="pagination-account">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Account Edit Modal -->
+<div id="accountEditModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-account">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="account-edit-modal"></h5>
+                <button type="button" class="close" aria-label="Close" onclick="hideAccountEditModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="accountId" name="accountId">
+
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="username"><b>Username: </b></label>
+                    </div>
+                    <div class="col-lg-10 col-sm-12">
+                        <input id="username" class="form-control" type="text" maxlength="20">
+                        <label id="errUsername" class="errInfo" for="name"></label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="firstName"><b>First Name: </b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <input id="firstName" class="form-control" type="text" maxlength="50">
+                        <label id="errFirstName" class="errInfo" for="name"></label>
+                    </div>
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="lastName"><b>Last Name: </b></label>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <input id="lastName" class="form-control" type="text" maxlength="50">
+                        <label id="errLastName" class="errInfo" for="name"></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="email"><b>Email: </b></label>
+                    </div>
+                    <div class="col-lg-10 col-sm-12">
+                        <input id="email" class="form-control" type="text" maxlength="50">
+                        <label id="errEmail" class="errInfo" for="name"></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="roles"><b>Roles: </b></label>
+                    </div>
+                    <div class="col-lg-10 col-sm-12">
+                        <select id="select-modal-role" class="form-control" name="roles">
+                        </select>
+                        <label id="errSelectRole" class="errInfo" for="name"></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="departments"><b>Department: </b></label>
+                    </div>
+                    <div class="col-lg-10 col-sm-12">
+                        <select id="select-modal-department" class="form-control" name="departments">
+                        </select>
+                        <label id="errSelectDepartment" class="errInfo" for="name"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-12" style="text-align: right;">
+                        <button type="button" class="btn btn-primary" onclick="validateSaveAccount()">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            onclick="hideAccountEditModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal Delete-->
+<div id="deleteAccountModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content -->
+        <div class="modal-content modal-delete-confirm">
+            <h3 class="modalTitle" id="delete-account-modal-title">Delete Account</h3>
+            <p class="modalContent" id="delete-account-modal-content">Do you want to delete account?</p>
+            <div class="btnAreaDel">
+                <button id="btnYesDel" type='button' class="btn btn-primary" onclick="deleteAccount()">Yes</button>
+                <button id="btnNoDel" type='button' class="btn btn-secondary" onclick="hideDeleteAccountModal()">No</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+
+    <!-- Font Awesome JS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="form-login">
+            <h2>LOGIN</h2>
+            <form action="#" name="login">
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" id="username" autocomplete="off" name="username" placeholder="Username" />
+                        <label id="errUsername" class="errInfo" for="username"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="password" id="password" name="password" placeholder="Password" />
+                        <label id="errPassword" class="errInfo" for="password"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label id="errCommon" class="errInfo"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 forgot-password">
+                        <a href="#" id="forgot-password" onclick="forgotPassword()">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="checkbox" id="cbx-remember-me" name="checkbox">
+                        <label class="checkbox-text"> Remember me</label>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-light" id="login"
+                            onclick="validateLoginUser()">Login</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-light" id="regist"
+                            onclick="showAccountRegistModal()">Regist</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- Account Regist Modal -->
+    <div id="accountRegistModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-account-regist">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="account-regist-modal">SIGN UP</h5>
+                    <button type="button" class="close" aria-label="Close" onclick="hideAccountRegistModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12">
+                            <label for="registUsername"><b>Username: </b></label>
+                        </div>
+                        <div class="col-lg-10 col-sm-12">
+                            <input id="registUsername" class="form-control" type="text" maxlength="50">
+                            <label id="errRegistUsername" class="errInfo" for="registUsername"></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12">
+                            <label for="registFirstName"><b>First Name: </b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <input id="registFirstName" class="form-control" type="text" maxlength="50">
+                            <label id="errRegistFirstName" class="errInfo" for="registFirstName"></label>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <label for="registLastName"><b>Last Name: </b></label>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <input id="registLastName" class="form-control" type="text" maxlength="50">
+                            <label id="errRegistLastName" class="errInfo" for="registLastName"></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12">
+                            <label for="registEmail"><b>Email: </b></label>
+                        </div>
+                        <div class="col-lg-10 col-sm-12">
+                            <input id="registEmail" class="form-control" type="text" maxlength="50">
+                            <label id="errRegistEmail" class="errInfo" for="registEmail"></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12">
+                            <label for="registPassword"><b>Password: </b></label>
+                        </div>
+                        <div class="col-lg-10 col-sm-12">
+                            <input id="registPassword" class="form-control" type="password" maxlength="12">
+                            <label id="errRegistPassword" class="errInfo" for="registPassword"></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label id="errRegist" class="errInfo"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-12" style="text-align: right;">
+                            <button type="button" class="btn btn-primary"
+                                onclick="validateSaveRegistAccount()">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                onclick="hideAccountRegistModal()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Infomation -->
+    <div id="loginInfomation" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-login-info">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="account-regist-modal">Infomation</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <label id="loginInfo"></label>
+                        </div>
+                        <div class="col-12" style="text-align: right;">
+                            <a href="http://127.0.0.1:5500/html/changePassword.html" id="linkToChangePassword">
+                                go to changePassword page ->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-12" style="text-align: center;">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                onclick="hideLoginInfomation()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/common/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <script src="/js/login.js"></script>
+        <script src="/js/storage.js"></script>
+</body>
+
+</html>

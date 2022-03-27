@@ -1,0 +1,243 @@
+<div class="container-lg">
+
+    <div class="alert alert-success alert-dismissible" id="alert-success-department">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong id= ">Thành công!</strong>.
+    </div>
+    
+    <div class="alert alert-danger alert-dismissible" id="alert-error-department">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong id="error-message-department">Thất bại!</strong>.
+    </div>
+
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Department List</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- filter and search area -->
+            <div class="search-filter-area">
+                <div class="row">
+                    <div class="col-lg-2 col-sm-4 input-search-group">
+                        <input id="min-date" class="form-control effect effect-2 filter" type="date" placeholder=""
+                            style="width: 100%;">
+                        <label>Created Date From</label>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-4 input-search-group">
+                        <input id="max-date" class="form-control effect effect-2 filter" type="date" placeholder=""
+                            style="width: 100%;">
+                        <label>Created Date To</label>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-4 input-search-group">
+                        <select id="type-select" class="form-control effect effect-3 filter" name="types"
+                            onblur="changeInputForDepartment()">
+                        </select>
+                        <label>Type</label>
+                    </div>
+
+                    <div class="col-lg-1 col-sm-2 input-search-group">
+                        <label id="filter-btn" onclick="filterDepartment()"><i class="fa-solid fa-filter"
+                                style="font-size: 40px;"></i></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-sm-4 input-search">
+                        <input id="search_department_name" class="form-control effect" type="text"
+                            onblur="changeInputForDepartment()" onkeyup="searchByDepartmentName(event)">
+                        <label><i class="fa-solid fa-magnifying-glass"></i> Search by name</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page number, add, delete departments area -->
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-6">
+                    <p style="display: inline-flex; color: black;">
+                        Show&nbsp;
+                        <select class="form-control form-control-sm" id="pageSize" onchange="changePageDepartmentNumber()">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                        </select>
+                        &nbsp;entries
+                    </p>
+                </div>
+                <div class="col-6" style="text-align: right;">
+                    <button type="button" class="btn btn-info add-new" onclick="openAddNewModalDepartment()"><i
+                            class="fa fa-plus"></i> Add New</button>
+                    <button type="button" class="btn btn-info delete" onclick="showDeleteDepartmentModals()"><i
+                            class="fa fa-minus"></i> Delete</button>
+                </div>
+            </div>
+
+            <!-- department table list -->
+            <div class="table-area">
+                <table class="table table-bordered department-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;"><input type="checkbox" id="checkbox-department-all" name="checkbox-department-all"
+                                    onclick="onChangeCheckboxDepartmentAll()"></th>
+                            <th>Department Name <i id="department-name-sort" class="fa-solid fa-sort"
+                                    onclick="changeDepartmentListSort('name')"></i></th>
+                            <th style="width: 15%;">Total member <i id="total-member-sort" class="fa-solid fa-sort"
+                                    onclick="changeDepartmentListSort('totalMember')"></i></th>
+                            <th style="width: 15%;">Type <i id="type-sort" class="fa-solid fa-sort"
+                                    onclick="changeDepartmentListSort('type')"></i></th>
+                            <th style="width: 15%;">Create date <i id="create-date-sort" class="fa-solid fa-sort"
+                                    onclick="changeDepartmentListSort('createdDate')"></i></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end pagination-sm" id="pagination">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Department Edit Modal -->
+<div id="departmentModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-department">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="department-edit-modal"></h5>
+                <button type="button" class="close" aria-label="Close" onclick="hideAddNewModalDepartment()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="departmentId" name="departmentId">
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12">
+                        <label for="name"><b>Department name</b></label>
+                    </div>
+                    <div class="col-lg-8 col-sm-12">
+                        <input id="name" class="form-control" type="text" maxlength="30">
+                        <label id="errDepartmentName" class="errInfo" for="name"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12">
+                        <label for="types"><b>Type</b></label>
+                    </div>
+                    <div class="col-lg-8 col-sm-12">
+                        <select id="type" class="form-control" name="types">
+                        </select>
+                        <label id="errDepartmentType" class="errInfo" for="types"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12">
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal" id="add-account"
+                            onclick="showModalAccountList()">Add Account</button>
+                    </div>
+                    <div class="col-lg-8 col-sm-12" style="text-align: right;">
+                        <button type="button" class="btn btn-primary" onclick="validateSaveDepartment()">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            onclick="hideAddNewModalDepartment()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Account List Modal -->
+<div id="accountListModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-list-account">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modat-title-account-list">Add account</h5>
+                <button type="button" class="close" aria-label="Close" onclick="hideModalAccountList()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered modal-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">&nbsp;</th>
+                            <th>UserName <i id="username-name-sort" class="fa-solid fa-sort"
+                                    onclick="changeModalAccountListSort('username')"></i></th>
+                            <th>Full Name <i id="fullName-sort" class="fa-solid fa-sort"
+                                    onclick="changeModalAccountListSort('fullName')"></i></th>
+                            <th style="width: 15%;">Role <i id="role-sort" class="fa-solid fa-sort"
+                                    onclick="changeModalAccountListSort('role')"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end pagination-sm" id="pagination-account-list">
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-12" style="text-align: right;">
+                        <button type="button" class="btn btn-primary" onclick="saveAccountList()">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            onclick="hideModalAccountList()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal Delete-->
+<div id="deleteDepartmentModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content -->
+        <div class="modal-content modal-delete-confirm">
+            <h3 class="modalTitle" id="delete-modal-title">Delete Department</h3>
+            <p class="modalContent" id="delete-modal-content">Do you want to delete department?</p>
+            <div class="btnAreaDel">
+                <button id="btnYesDel" type='button' class="btn btn-primary" onclick="deleteDepartment()">Yes</button>
+                <button id="btnNoDel" type='button' class="btn btn-secondary" onclick="hideDeleteDepartmentModal()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Infomation -->
+<div id="infoMsgDepartment" class="infoMsgModal">
+    <!-- Modal content -->
+    <div class="modal-content info-modal-content">
+        <h3 id='infoNameDepartment'><i class='fas fa-times-circle errInfoIcon'></i> Error</h3>
+        <br>
+        <p id="infoContentDepartment"></p>
+        <br>
+        <div class="btnAreaInfo">
+            <button id="btnOkDepartment" type='button' class="btn btn-primary" onclick="closeInfomationDepartment()">OK</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,561 @@
+/* my style  css */
+.main {
+    padding: 20px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.footer {
+    height: 50px;
+    background-color: #6d7fcc;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.home-icon {
+    font-size: 40px;
+    color: #47748b;
+}
+
+.nav-top-icon {
+    font-size: 30px;
+    color: #47748b;
+}
+
+i,
+i:hover,
+i:focus {
+    color: #92c7e2;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.table-wrapper {
+    width: 100%;
+    margin: 30px auto;
+    margin-top: 0px;
+    padding: 20px;
+    box-shadow: 0 1px 1px #a0aff1;
+    border: #c8cfec 1px solid;
+    background: rgba(232, 241, 264, 0.5);
+    height: 760px;
+}
+
+.search-filter-area {
+    border-bottom: 1px #7386D5 solid;
+    margin-top: 30px;
+}
+
+.input-search {
+    padding: 0;
+    margin: 15px;
+}
+
+.filter {
+    height: 38px !important;
+}
+
+.table {
+    background-color: white;
+}
+
+.table-title .add-new, .table-title .delete, .table-title .search {
+    float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.table-title .add-new i, .table-title .delete i {
+    margin-right: 4px;
+}
+
+tbody{
+    font-weight: normal;
+}
+
+table.table {
+    table-layout: fixed;
+}
+
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+table.table th {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+table.table td {
+    padding: 0.25rem;
+}
+
+table.table th:last-child {
+    width: 100px;
+}
+
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}
+
+table.table td a.add {
+    color: #27C46B;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+}
+
+table.table td a.delete {
+    color: #E34724;
+}
+
+table.table td i {
+    font-size: 19px;
+}
+
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}
+
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+table.table .form-control.error {
+    border-color: #f50000;
+}
+
+table.table td .add {
+    display: none;
+}
+
+#filter-btn {
+    cursor: pointer;
+}
+
+.modal-footer {
+    display: inline;
+}
+
+.modal-list-account {
+    max-width: 700px;
+}
+
+.modal-delete-confirm {
+    margin: auto;
+    max-width: 400px;
+    padding: 10px;
+    text-align: center;
+}
+
+#btnYesDel, #btnNoDel {
+    width: 20%;
+}
+
+.modal-account {
+    max-width: 800px;
+}
+
+
+/* The Modal (background) */
+.infoMsgModal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 700px) {
+    .infoMsgModal {
+        width: 100%;
+    }
+}
+
+/* Infomation Modal Content */
+.info-modal-content {
+    background-color: rgb(217, 230, 243);
+    margin: auto;
+    margin-top: 10%;
+    padding: 10px 30px 10px 30px;
+    border: 1px solid rgb(117, 119, 240);
+    border-radius: 3px;
+    width: 20%;
+}
+
+.btnAreaInfo {
+    margin-top: 10px;
+    margin-left: 80%;
+}
+
+.errInfoIcon, .errInfo{
+    color: red;
+}
+
+.common-icon{
+    color: #fafafa;
+}
+
+.common-icon:hover,
+.common-icon:focus {
+    color: #7386D5;
+}
+
+/* ẩn thông báo thành công */
+#alert-success-department {
+    display: none;
+}
+
+#alert-success-account {
+    display: none;
+}
+
+/* ẩn thông báo thất bại */
+#alert-error-department {
+    display: none;
+}
+
+#alert-error-account {
+    display: none;
+}
+
+.table-area{
+    max-height: 410px;
+    overflow-y: scroll;
+}
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.logout {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+/*= input focus effects css
+=========================== */
+:focus {
+    outline: none;
+}
+
+/* .col-3{float: left; width: 27.33%;     padding: 0px; margin: 40px 3%; position: relative;}  */
+input[type="text"] {
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+input[type="date"] {
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+.effect {
+    border: 1px solid #ccc;
+    padding: 7px 14px;
+    transition: 0.4s;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.effect~.focus-border:before,
+.effect~.focus-border:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #3399FF;
+    transition: 0.4s;
+}
+
+.effect~.focus-border:after {
+    top: auto;
+    bottom: 0;
+}
+
+.effect~.focus-border i:before,
+.effect~.focus-border i:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background-color: #3399FF;
+    transition: 0.6s;
+    box-shadow: #3399FF 1px;
+}
+
+.effect~.focus-border i:after {
+    left: auto;
+    right: 0;
+}
+
+.effect:focus~.focus-border:before,
+.effect:focus~.focus-border:after,
+.has-content.effect~.focus-border:before,
+.has-content.effect~.focus-border:after {
+    left: 0;
+    width: 100%;
+    transition: 0.4s;
+}
+
+.effect:focus~.focus-border i:before,
+.effect:focus~.focus-border i:after,
+.has-content.effect~.focus-border i:before,
+.has-content.effect~.focus-border i:after {
+    top: -1px;
+    height: 100%;
+    transition: 0.6s;
+}
+
+.effect~label {
+    position: absolute;
+    left: 14px;
+    width: 100%;
+    top: 10px;
+    color: black;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+
+.effect:focus~label, .has-content.effect~label {
+    top: -18px;
+    left: 0;
+    font-size: 12px;
+    color: #087ff7;
+    transition: 0.3s;
+}
+
+.effect-2:focus~label, .has-content.effect-2~label {
+    left: 14px;
+}
+
+.effect-2~label {
+    top: -18px;
+    left: 14px;
+    font-size: 12px;
+    color: #087ff7;
+    transition: 0.3s;
+}
+
+.effect-3~label {
+    left: 32px;
+}
+
+.effect-3:focus~label, .has-content.effect-3~label {
+    left: 14px;
+}
+
+/*= input focus effects css End
+=============================== */
