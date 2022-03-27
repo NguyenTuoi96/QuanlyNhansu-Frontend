@@ -1,7 +1,7 @@
 var urlGetMess = "";
 $(function () {
   if (storage.getItem("id") == null) {
-    window.location.replace("https://quanly-nhansu.herokuapp.com/html/login.html");
+    window.location.replace("https://jolly-pothos-acc81d.netlify.app/html/login.html");
   } else {
     $("#accountName").text(storage.getItem("fullName"));
     if (storage.getItem("role") != "ADMIN") {
@@ -93,7 +93,7 @@ function logoutUser() {
   storage.removeItem("departmentName");
   storage.removeItem("username");
   storage.removeItem("password");
-  window.location.replace("https://quanly-nhansu.herokuapp.com/html/login.html");
+  window.location.replace("https://jolly-pothos-acc81d.netlify.app/html/login.html");
 }
 
 function getMessage(key) {
