@@ -102,7 +102,7 @@ function loginUser(username, password) {
                 storage.setItem("password", password);
 
                 // chuyển trang
-                window.location.replace("http://127.0.0.1:5500/html/common/index.html");
+                window.location.replace("https://jolly-pothos-acc81d.netlify.app/index.html");
             }
         },
         error: function (result) {
@@ -299,7 +299,7 @@ function gotoHomePage(username, password) {
             storage.setItem("password", password);
 
             // chuyển trang
-            window.location.replace("http://127.0.0.1:5500/html/common/index.html");
+            window.location.replace("https://jolly-pothos-acc81d.netlify.app/index.html");
         },
         error: function (result) {
             if (result.status == 401) {
@@ -351,5 +351,5 @@ function isEmailFormat(email) {
 }
 
 function forgotPassword() {
-    window.location.href = "http://127.0.0.1:5500/html/forgotPassword.html";
+    window.location.href = "https://quanly-nhansu.herokuapp.com/html/forgotPassword.html";
 }

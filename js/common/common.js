@@ -1,7 +1,7 @@
 var urlGetMess = "";
 $(function () {
   if (storage.getItem("id") == null) {
-    window.location.replace("http://127.0.0.1:5500/html/login.html");
+    window.location.replace("https://quanly-nhansu.herokuapp.com/html/login.html");
   } else {
     $("#accountName").text(storage.getItem("fullName"));
     if (storage.getItem("role") != "ADMIN") {
@@ -93,7 +93,7 @@ function logoutUser() {
   storage.removeItem("departmentName");
   storage.removeItem("username");
   storage.removeItem("password");
-  window.location.replace("http://127.0.0.1:5500/html/login.html");
+  window.location.replace("https://quanly-nhansu.herokuapp.com/html/login.html");
 }
 
 function getMessage(key) {

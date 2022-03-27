@@ -136,7 +136,7 @@ function getListAccount() {
         },
         success: function (result) {
             if (result.code == 403) {
-                window.location.href = "http://127.0.0.1:5500/html/error.html";
+                window.location.href = "https://quanly-nhansu.herokuapp.com/html/error.html";
                 return;
             }
             result.content.forEach(function (item, index) {
